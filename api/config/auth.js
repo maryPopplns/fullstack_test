@@ -14,7 +14,8 @@ passport.use(
     {
       clientID: process.env.CLIENT,
       clientSecret: process.env.SECRET,
-      callbackURL: 'http://localhost:3001/login/google/callback',
+      callbackURL:
+        'https://pure-waters-33367.herokuapp.com/login/google/callback',
     },
     function (accessToken, refreshToken, profile, done) {
       const { email } = profile._json;
