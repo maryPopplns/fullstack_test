@@ -1,6 +1,5 @@
 require('dotenv').config();
 const path = require('path');
-const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const passportJWT = require('passport-jwt');
 const JWTStrategy = passportJWT.Strategy;
@@ -13,9 +12,9 @@ const User = require(path.join(__dirname, '../models/user'));
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: 'http://localhost:3001/login/google/success',
+      clientID: process.env.CLIENT,
+      clientSecret: process.env.SECRET,
+      callbackURL: 'http://localhost:3001/login/google/callback',
     },
     function (accessToken, refreshToken, profile, done) {
       const { email } = profile._json;

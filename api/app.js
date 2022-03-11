@@ -17,6 +17,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'build')));
 
+require(path.join(__dirname, '/config/auth'));
+
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 
@@ -33,7 +35,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send(err);
 });
 
 module.exports = app;
