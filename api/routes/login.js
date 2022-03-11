@@ -40,8 +40,7 @@ router.get('/google/callback', function (req, res, next) {
       );
       // send token / redirect to home
       res.cookie('knightBlogToken', token);
-      const home = '../../';
-      return res.redirect(home);
+      res.redirect('https://pure-waters-33367.herokuapp.com');
     }
   )(req, res, next);
 });
